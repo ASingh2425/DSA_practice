@@ -1,0 +1,10 @@
+{
+  "code": "class Solution {\n    public boolean isPalindrome(int x) {\n        if(x<0 || (x%10 == 0 && x != 0))\n            return false;\n        int reversedHalf = 0;\n        while (x > reversedHalf){\n            reversedHalf = reversedHalf * 10 + x % 10;\n            x /= 10;\n        }\n        return x == reversedHalf || x == reversedHalf /10;\n    }\n}",
+  "difficulty": "Easy",
+  "language": "java",
+  "platform": "LeetCode",
+  "problemName": "Palindrome Number",
+  "problemNumber": "9",
+  "submissionDate": "2026-07-08T12:12:37.616Z",
+  "submissionUrl": "https://leetcode.com/problems/palindrome-number/submissions/2060475834/"
+}
