@@ -1,0 +1,10 @@
+{
+  "code": "class Solution {\n    public double findMedianSortedArrays(int[] nums1, int[] nums2) {\n        if(nums1.length > nums2.length)\n            return findMedianSortedArrays(nums2, nums1);\n        int x = nums1.length;\n        int y = nums2.length;\n        int low=0;\n        int high=x;\n        while(low<=high){\n            int partitionX = (low+high)/2;\n            int partitionY = (x+y+1)/2 - partitionX;\n            int maxLeftX = (partitionX == 0) ? Integer.MIN_VALUE : nums1[partitionX - 1];\n            int minRightX = (partitionX == x) ? Integer.MAX_VALUE : nums1[partitionX];\n            int maxLeftY = (partitionY == 0) ? Integer.MIN_VALUE : nums2[partitionY - 1];\n            int minRightY = (partitionY == y) ? Integer.MAX_VALUE : nums2[partitionY];\n            if(maxLeftX <= minRightY && maxLeftY <= minRightX){\n                if((x+y)%2 == 0){\n                    return (Math.max(maxLeftX,maxLeftY)+ Math.min(minRightX, minRightY)) / 2.0;\n                }\n                return Math.max(maxLeftX, maxLeftY);\n            } else if (maxLeftX > minRightY){\n                high = partitionX - 1;\n            } else {\n                low = partitionX + 1;\n            }\n        }\n        return 0.0;\n    }\n}",
+  "difficulty": "Unknown",
+  "language": "java",
+  "platform": "LeetCode",
+  "problemName": "Median Of Two Sorted Arrays",
+  "problemNumber": "",
+  "submissionDate": "2026-07-08T11:53:44.425Z",
+  "submissionUrl": "https://leetcode.com/problems/median-of-two-sorted-arrays/submissions/2060458662/"
+}
