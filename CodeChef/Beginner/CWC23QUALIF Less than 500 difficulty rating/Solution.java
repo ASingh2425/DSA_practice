@@ -1,0 +1,1 @@
+// Solution for Less than 500 difficulty rating on CodeChef
